@@ -13,7 +13,4 @@ interface QiitaApiService {
     fun getItems(@Query("page") page: Int,
                  @Query("par_page") perPage: Int): Call<List<QiitaItemsDto>>
 
-    @GET("users/{user_id}")
-    fun getUserDetails(
-        @Path("user_id") userId : String): Call<UserDto>
 }

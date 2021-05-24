@@ -79,20 +79,23 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     // Retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
-    implementation "com.squareup.retrofit2:converter-moshi:2.6.2"
+    def retrofit_version = "2.6.2"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
     // OkHttp
     implementation 'com.squareup.okhttp3:okhttp:3.12.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
     // Moshi
-    implementation "com.squareup.moshi:moshi-kotlin:1.8.0"
-    implementation 'com.squareup.moshi:moshi-adapters:1.8.0'
+    def moshi_version = "1.8.0"
+    implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
+    implementation "com.squareup.moshi:moshi-adapters:$moshi_version"
     // coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1'
 
     // koin
-    implementation 'org.koin:koin-android:2.0.1'
-    implementation 'org.koin:koin-android-scope:2.0.1'
-    implementation 'org.koin:koin-android-viewmodel:2.0.1'
+    def koin_version = "2.0.1"
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-android-scope:$koin_version"
+    implementation "org.koin:koin-android-viewmodel:$koin_version"
 }

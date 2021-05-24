@@ -5,9 +5,7 @@ import com.example.qiitalistsample.domain.model.entity.QiitaItem
 import com.example.qiitalistsample.domain.model.entity.User
 interface QiitaApiRepository {
     /**
-     * 記事取得
+     * Moshiを用いて記事取得
      */
-    suspend fun getQiitaItems(page: Int) : MyResult<List<QiitaItem>>
-
-    suspend fun getUserDetails(userId: String): MyResult<User>
+    suspend fun getQiitaItemsByMoshi(page: Int) : MyResult<List<QiitaItem>>
 }

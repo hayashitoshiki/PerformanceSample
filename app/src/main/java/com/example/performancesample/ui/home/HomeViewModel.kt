@@ -18,15 +18,18 @@ class HomeViewModel(private val apiPerformanceUseCase: ApiPerformanceUseCase) : 
     init {
         getQiitaItems()
     }
+
+    /**
+     * API取得パフォーマンス計測
+     */
     fun getQiitaItems() {
         viewModelScope.launch {
             val timeInMillis = measureTimeMillis {
                 viewModelScope.launch {
-                    apiPerformanceUseCase.getQiitaItems(1)
+                    apiPerformanceUseCase.getQiitaItemsByMoshi(1)
                 }.join()
             }
             _text.value = "Qiita取得時間$timeInMillis"
-
         }
     }
 }
