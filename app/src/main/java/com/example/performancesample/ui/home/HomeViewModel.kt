@@ -11,9 +11,13 @@ import kotlin.system.measureTimeMillis
 class HomeViewModel(private val apiPerformanceUseCase: ApiPerformanceUseCase) : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+        value = "Moshi 計測中.."
     }
     val text: LiveData<String> = _text
+    private val _kotlinText = MutableLiveData<String>().apply {
+        value = "Kotlin Serialization 計測中.."
+    }
+    val kotlinText: LiveData<String> = _kotlinText
 
     init {
         getQiitaItems()
@@ -24,12 +28,19 @@ class HomeViewModel(private val apiPerformanceUseCase: ApiPerformanceUseCase) : 
      */
     fun getQiitaItems() {
         viewModelScope.launch {
-            val timeInMillis = measureTimeMillis {
+            val timeInMillis1 = measureTimeMillis {
                 viewModelScope.launch {
                     apiPerformanceUseCase.getQiitaItemsByMoshi(1)
                 }.join()
             }
-            _text.value = "Qiita取得時間$timeInMillis"
+            _text.value = "Qiita取得時間(moshi)$timeInMillis1"
+
+            val timeInMillis2 = measureTimeMillis {
+                viewModelScope.launch {
+                    apiPerformanceUseCase.getQiitaItemsByKotlin(1)
+                }.join()
+            }
+            _kotlinText.value = "Qiita取得時間(kotlin)$timeInMillis2"
         }
     }
 }

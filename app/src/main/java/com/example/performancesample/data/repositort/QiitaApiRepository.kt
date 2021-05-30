@@ -8,4 +8,9 @@ interface QiitaApiRepository {
      * Moshiを用いて記事取得
      */
     suspend fun getQiitaItemsByMoshi(page: Int) : MyResult<List<QiitaItem>>
+
+    /**
+     * Moshiを用いて記事取得
+     */
+    suspend fun getQiitaItemsByKotlin(page: Int) : MyResult<List<QiitaItem>>
 }

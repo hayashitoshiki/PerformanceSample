@@ -14,4 +14,9 @@ interface ApiPerformanceUseCase {
      * Moshを用いてAPOI取得
      */
     suspend fun getQiitaItemsByMoshi(page: Int) : MyResult<List<QiitaItem>>
+
+    /**
+     * Kotlin Serializationを用いてAPOI取得
+     */
+    suspend fun getQiitaItemsByKotlin(page: Int) : MyResult<List<QiitaItem>>
 }
